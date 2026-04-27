@@ -870,34 +870,26 @@ export default function Product() {
               >
                 Поръчайте вашата Hydrogen Health система днес.
               </motion.p>
-              <motion.div 
-                className="flex flex-col md:flex-row items-center justify-center gap-2 mt-3 w-full"
+              <motion.div
+                className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mt-6"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.4 }}
               >
-                <div className="w-full md:w-auto flex items-center justify-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 md:px-6 md:py-4 rounded-[16px] md:rounded-[24px] border border-white/20 hover:bg-white/20 transition-colors">
+                <div className="w-full sm:w-auto flex items-center justify-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 md:px-6 md:py-4 rounded-[16px] md:rounded-[24px] border border-white/20 hover:bg-white/20 transition-colors">
                   <Phone className="w-4 h-4 md:w-5 md:h-5 text-brand-light flex-shrink-0" />
                   <div className="text-left">
                     <p className="text-[9px] md:text-[10px] text-brand-light/70 uppercase tracking-widest font-bold">Телефон</p>
                     <p className="text-sm md:text-base font-extrabold text-white">0884178090</p>
                   </div>
                 </div>
-                
-                <div className="w-full md:w-auto flex items-center justify-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 md:px-6 md:py-4 rounded-[16px] md:rounded-[24px] border border-white/20 hover:bg-white/20 transition-colors">
+
+                <div className="w-full sm:w-auto flex items-center justify-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 md:px-6 md:py-4 rounded-[16px] md:rounded-[24px] border border-white/20 hover:bg-white/20 transition-colors">
                   <Mail className="w-4 h-4 md:w-5 md:h-5 text-brand-light flex-shrink-0" />
                   <div className="text-left">
                     <p className="text-[9px] md:text-[10px] text-brand-light/70 uppercase tracking-widest font-bold">Имейл</p>
                     <p className="text-sm md:text-base font-extrabold text-white">info@hydrogenhealth.bg</p>
-                  </div>
-                </div>
-                
-                <div className="w-full md:w-auto flex items-center justify-center gap-2 bg-white/10 backdrop-blur-md px-4 py-2 md:px-6 md:py-4 rounded-[16px] md:rounded-[24px] border border-white/20 hover:bg-white/20 transition-colors">
-                  <Clock className="w-4 h-4 md:w-5 md:h-5 text-brand-light flex-shrink-0" />
-                  <div className="text-left">
-                    <p className="text-[9px] md:text-[10px] text-brand-light/70 uppercase tracking-widest font-bold">Работно време</p>
-                    <p className="text-sm md:text-base font-extrabold text-white">09:30 - 17:00</p>
                   </div>
                 </div>
               </motion.div>

@@ -507,34 +507,26 @@ export default function Home() {
               >
                 Поръчайте вашата Hydrogen Health система днес и направете крачка към балансиран живот.
               </motion.p>
-              <motion.div 
-                className="flex flex-col lg:flex-row items-center justify-center gap-6 mt-8"
+              <motion.div
+                className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-8"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.4 }}
               >
-                <div className="w-full lg:w-auto flex items-center justify-center gap-4 bg-white/10 backdrop-blur-md px-8 py-5 rounded-[30px] border border-white/20 flex-1 hover:bg-white/20 transition-colors">
+                <div className="w-full sm:w-auto flex items-center justify-center gap-4 bg-white/10 backdrop-blur-md px-8 py-5 rounded-[30px] border border-white/20 hover:bg-white/20 transition-colors">
                   <Phone className="w-8 h-8 text-brand-light" />
                   <div className="text-left">
                     <p className="text-xs text-brand-light/70 uppercase tracking-widest font-bold mb-1">Телефон</p>
                     <p className="text-xl font-extrabold text-white">0884178090</p>
                   </div>
                 </div>
-                
-                <div className="w-full lg:w-auto flex items-center justify-center gap-4 bg-white/10 backdrop-blur-md px-8 py-5 rounded-[30px] border border-white/20 flex-1 hover:bg-white/20 transition-colors">
+
+                <div className="w-full sm:w-auto flex items-center justify-center gap-4 bg-white/10 backdrop-blur-md px-8 py-5 rounded-[30px] border border-white/20 hover:bg-white/20 transition-colors">
                   <Mail className="w-8 h-8 text-brand-light" />
                   <div className="text-left">
                     <p className="text-xs text-brand-light/70 uppercase tracking-widest font-bold mb-1">Имейл</p>
                     <p className="text-xl font-extrabold text-white">info@hydrogenhealth.bg</p>
-                  </div>
-                </div>
-                
-                <div className="w-full lg:w-auto flex items-center justify-center gap-4 bg-white/10 backdrop-blur-md px-8 py-5 rounded-[30px] border border-white/20 flex-1 hover:bg-white/20 transition-colors">
-                  <Clock className="w-8 h-8 text-brand-light" />
-                  <div className="text-left">
-                    <p className="text-xs text-brand-light/70 uppercase tracking-widest font-bold mb-1">Работно време</p>
-                    <p className="text-xl font-extrabold text-white">09:30 - 17:00</p>
                   </div>
                 </div>
               </motion.div>
