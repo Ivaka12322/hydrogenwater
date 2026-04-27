@@ -63,9 +63,9 @@ export default function Home() {
       {/* 1. HERO SECTION */}
       <section className="relative h-screen min-h-[600px] flex items-center justify-center pt-20 overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <img 
-            src="/Hero bg.png" 
-            alt="Hydrogen Health Hero Background" 
+          <img
+            src="/Hero_bg_2.png"
+            alt="Hydrogen Health Hero Background"
             className="w-full h-full object-cover object-center md:transform-none scale-110 -translate-x-[30px] md:scale-100 md:translate-x-0"
           />
           <div className="absolute inset-0 bg-black/40 mix-blend-multiply" />
