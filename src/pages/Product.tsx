@@ -213,11 +213,11 @@ export default function Product() {
               viewport={{ once: true }}
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
-              <div className="absolute inset-0 bg-brand-light rounded-[40px] transform -rotate-3 scale-95 z-0"></div>
+              <div className="absolute inset-0 bg-brand-light rounded-[40px] transform -rotate-3 scale-90 z-0"></div>
               <img
                 src="/System.png"
                 alt="Hydrogen Health 808"
-                className="relative z-10 w-full max-w-lg lg:max-w-2xl rounded-2xl shadow-2xl object-contain aspect-[4/5] bg-white p-4 product-hero-image"
+                className="relative z-10 w-full max-w-lg lg:max-w-3xl rounded-2xl shadow-2xl object-contain aspect-[4/5] bg-white p-2 product-hero-image"
               />
             </motion.div>
             
@@ -509,9 +509,9 @@ export default function Product() {
                   <motion.div
                     key={step.id}
                     layout
-                    onClick={() => window.innerWidth < 768 && setActiveStep(isExpanded ? null : step.id)}
-                    className={`relative md:cursor-default overflow-hidden rounded-[32px] transition-all duration-500 ease-out border border-gray-100 group card ${
-                      isExpanded ? 'md:flex-[3] md:min-h-[600px] ring-2 ring-brand-primary/20 shadow-2xl z-30' : 'flex-1 cursor-pointer hover:bg-gray-50 z-0 md:hover:bg-white'
+                    onClick={() => setActiveStep(isExpanded ? null : step.id)}
+                    className={`relative cursor-pointer overflow-hidden rounded-[32px] transition-all duration-500 ease-out border border-gray-100 group card ${
+                      isExpanded ? 'md:flex-[3] md:min-h-[600px] ring-2 ring-brand-primary/20 shadow-2xl z-30' : 'flex-1 hover:bg-gray-50 z-0'
                     }`}
                     initial={false}
                   >
