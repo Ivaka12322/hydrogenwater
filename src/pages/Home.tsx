@@ -203,14 +203,11 @@ export default function Home() {
                 className="bg-white rounded-[20px] shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 overflow-hidden flex flex-col group"
               >
                 <div className="h-56 w-full relative overflow-hidden">
-                  <img 
-                    src={benefit.img} 
-                    alt={benefit.title} 
+                  <img
+                    src={benefit.img}
+                    alt={benefit.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm p-3 rounded-2xl shadow-sm">
-                    <benefit.icon className="w-6 h-6 text-brand-primary" />
-                  </div>
                 </div>
                 <div className="p-8 bg-white flex-1 flex flex-col text-left">
                   <h3 className="text-2xl font-bold text-text-main mb-4 tracking-tight">{benefit.title}</h3>
