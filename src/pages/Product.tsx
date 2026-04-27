@@ -604,15 +604,15 @@ export default function Product() {
           </div>
 
           <div className="relative group">
-            <button 
+            <button
               onClick={() => scroll(phCarouselRef, 'left')}
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-20 w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full shadow-lg flex items-center justify-center text-brand-primary border border-gray-100 opacity-0 group-hover:opacity-100 transition-opacity hover:bg-brand-primary hover:text-white"
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-20 w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full shadow-lg flex items-center justify-center text-brand-primary border border-gray-100 opacity-0 md:hidden group-hover:opacity-100 transition-opacity hover:bg-brand-primary hover:text-white"
             >
               <ChevronLeft className="w-6 h-6" />
             </button>
-            <button 
+            <button
               onClick={() => scroll(phCarouselRef, 'right')}
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-20 w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full shadow-lg flex items-center justify-center text-brand-primary border border-gray-100 opacity-0 group-hover:opacity-100 transition-opacity hover:bg-brand-primary hover:text-white"
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-20 w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full shadow-lg flex items-center justify-center text-brand-primary border border-gray-100 opacity-0 md:hidden group-hover:opacity-100 transition-opacity hover:bg-brand-primary hover:text-white"
             >
               <ChevronRight className="w-6 h-6" />
             </button>
@@ -764,15 +764,15 @@ export default function Product() {
           </div>
 
           <div className="relative group">
-            <button 
+            <button
               onClick={() => scroll(testimonialCarouselRef, 'left')}
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-20 w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full shadow-lg flex items-center justify-center text-brand-primary border border-gray-100 opacity-0 group-hover:opacity-100 transition-opacity hover:bg-brand-primary hover:text-white"
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-20 w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full shadow-lg flex items-center justify-center text-brand-primary border border-gray-100 opacity-0 md:hidden group-hover:opacity-100 transition-opacity hover:bg-brand-primary hover:text-white"
             >
               <ChevronLeft className="w-6 h-6" />
             </button>
-            <button 
+            <button
               onClick={() => scroll(testimonialCarouselRef, 'right')}
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-20 w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full shadow-lg flex items-center justify-center text-brand-primary border border-gray-100 opacity-0 group-hover:opacity-100 transition-opacity hover:bg-brand-primary hover:text-white"
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-20 w-12 h-12 bg-white/90 backdrop-blur-sm rounded-full shadow-lg flex items-center justify-center text-brand-primary border border-gray-100 opacity-0 md:hidden group-hover:opacity-100 transition-opacity hover:bg-brand-primary hover:text-white"
             >
               <ChevronRight className="w-6 h-6" />
             </button>
