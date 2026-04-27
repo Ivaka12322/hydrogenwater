@@ -112,6 +112,7 @@ const MobileAccordion = () => {
 };
 
 export default function Product() {
+  const [activeStep, setActiveStep] = useState<number | null>(null);
   const phCarouselRef = useRef<HTMLDivElement>(null);
   const testimonialCarouselRef = useRef<HTMLDivElement>(null);
 
@@ -495,7 +496,7 @@ export default function Product() {
             </motion.p>
           </div>
 
-          <motion.div 
+          <motion.div
             className="flex flex-col md:flex-row gap-4 min-h-[450px]"
             variants={containerVariants}
             initial="hidden"
@@ -503,8 +504,6 @@ export default function Product() {
             viewport={{ once: true }}
           >
             {(() => {
-              const [activeStep, setActiveStep] = useState<number | null>(null);
-              
               const steps = [
                 {
                   id: 1,
@@ -538,30 +537,30 @@ export default function Product() {
 
               return steps.map((step) => {
                 const isExpanded = activeStep === step.id;
-                
+
                 return (
                   <motion.div
                     key={step.id}
                     layout
                     onClick={() => setActiveStep(isExpanded ? null : step.id)}
-                    className={`relative cursor-pointer overflow-hidden rounded-[32px] transition-all duration-500 ease-out border border-gray-100 flex-1 group card ${
-                      isExpanded ? 'md:flex-[3] ring-2 ring-brand-primary/20 shadow-2xl z-10' : 'hover:bg-gray-50 z-0'
+                    className={`relative cursor-pointer overflow-hidden rounded-[32px] transition-all duration-500 ease-out border border-gray-100 group card ${
+                      isExpanded ? 'md:flex-[3] md:min-h-[600px] ring-2 ring-brand-primary/20 shadow-2xl z-30' : 'flex-1 hover:bg-gray-50 z-0'
                     }`}
                     initial={false}
                   >
                     <div className={`absolute inset-0 z-0 bg-gray-900 transition-opacity duration-700 ${isExpanded ? 'opacity-100' : 'opacity-0'}`}>
-                      <img 
-                        src={step.image} 
+                      <img
+                        src={step.image}
                         alt={step.title}
                         className={`w-full h-full object-cover object-top transition-all duration-700 ${
-                          isExpanded ? 'scale-115' : 'scale-105'
+                          isExpanded ? 'scale-125' : 'scale-105'
                         }`}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-gray-900/95 via-gray-900/10 to-transparent pointer-events-none" />
                     </div>
 
-                    <div className={`relative z-10 p-8 h-full flex flex-col transition-all duration-500 ${isExpanded ? 'justify-end text-white' : 'justify-center items-center text-center bg-brand-light/30'}`}>
-                      <motion.div 
+                    <div className={`relative z-10 p-8 h-full flex flex-col transition-all duration-500 ${isExpanded ? 'justify-end text-white min-h-[600px]' : 'justify-center items-center text-center bg-brand-light/30 min-h-[450px]'}`}>
+                      <motion.div
                         layout="position"
                         className={`w-14 h-14 rounded-full flex items-center justify-center font-bold mb-6 shadow-sm transition-all duration-300 ${
                           isExpanded ? 'bg-brand-primary text-white scale-90' : 'bg-white text-brand-primary scale-100'
@@ -569,7 +568,7 @@ export default function Product() {
                       >
                         <span className="text-xl">{step.icon}</span>
                       </motion.div>
-                      
+
                       <motion.h4 layout="position" className={`font-bold transition-all duration-300 ${isExpanded ? 'text-2xl mb-4' : 'text-lg mb-2 text-text-main group-hover:text-brand-primary'}`}>
                         {step.title}
                       </motion.h4>
@@ -588,7 +587,7 @@ export default function Product() {
                           </motion.div>
                         )}
                         {!isExpanded && (
-                          <motion.p 
+                          <motion.p
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             className="text-[10px] text-text-muted uppercase tracking-[0.2em] font-bold opacity-60"
