@@ -29,16 +29,16 @@ export function Navbar() {
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out",
-        isTransparent 
-          ? "bg-transparent py-5 border-b border-transparent" 
+        isTransparent && !mobileMenuOpen
+          ? "bg-transparent py-5 border-b border-transparent"
           : "bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100 py-3"
       )}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           <Link to="/" className="flex items-center gap-2 group">
-            <span className={cn("font-semibold text-xl tracking-tight", isTransparent ? "text-white" : "text-text-main")}>
-              Hydrogen<span className={isTransparent ? "text-white/80" : "text-brand-primary"}>Health</span>
+            <span className={cn("font-semibold text-xl tracking-tight", isTransparent && !mobileMenuOpen ? "text-white" : "text-text-main")}>
+              Hydrogen<span className={isTransparent && !mobileMenuOpen ? "text-white/80" : "text-brand-primary"}>Health</span>
             </span>
           </Link>
 
@@ -92,7 +92,7 @@ export function Navbar() {
 
           {/* Mobile Menu Button */}
           <button
-            className={cn("md:hidden p-2", isTransparent ? "text-white" : "text-text-main")}
+            className={cn("md:hidden p-2", isTransparent && !mobileMenuOpen ? "text-white" : "text-text-main")}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
