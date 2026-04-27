@@ -66,7 +66,7 @@ export default function Home() {
           <img
             src="/Hero_bg_2.png"
             alt="Hydrogen Health Hero Background"
-            className="w-full h-full object-cover object-[center_30%] md:object-[center_20%] md:scale-110 md:origin-bottom"
+            className="w-full h-full object-cover object-[center_30%] md:object-[center_20%] md:scale-105 md:origin-bottom"
           />
           <div className="absolute inset-0 bg-black/40 mix-blend-multiply" />
         </div>
