@@ -444,16 +444,24 @@ export default function Product() {
       <section className="py-24 bg-white border-t border-gray-100 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <motion.h2 
-              className="text-3xl md:text-5xl font-bold text-text-main tracking-tight mb-4 text-balance"
+            <motion.span
+              className="text-brand-primary font-semibold tracking-wider uppercase text-sm"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+            >
+              Вашата система в четири стъпки
+            </motion.span>
+            <motion.h2
+              className="text-3xl md:text-5xl font-bold text-text-main tracking-tight mb-4 text-balance mt-2"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
               Как работи Hydrogen Health <span className="text-brand-primary">808</span>?
             </motion.h2>
-            <motion.p 
-              className="text-lg text-text-muted"
+            <motion.p
+              className="text-lg text-text-muted mt-4"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}

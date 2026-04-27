@@ -49,6 +49,20 @@ export function Footer() {
             <Link to="#" className="hover:text-white transition-colors">Общи условия</Link>
           </div>
         </div>
+
+        <div className="pt-6 border-t border-white/10 text-center text-xs text-white/50">
+          <p>
+            Сайтът е изготвен от{' '}
+            <a
+              href="https://avltechsolutions.org"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white/70 hover:text-brand-primary transition-colors"
+            >
+              AVL Tech Solutions
+            </a>
+          </p>
+        </div>
       </div>
     </footer>
   );
