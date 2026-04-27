@@ -207,17 +207,17 @@ export default function Product() {
           <div className="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
             {/* Product Image */}
             <motion.div
-              className="order-1 md:order-1 flex justify-center relative"
+              className="order-1 md:order-1 flex justify-center relative w-full sm:w-auto"
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
-              <div className="absolute inset-0 bg-brand-light rounded-[40px] transform -rotate-3 scale-90 z-0"></div>
+              <div className="absolute inset-0 bg-brand-light rounded-[40px] transform -rotate-3 scale-75 sm:scale-90 z-0"></div>
               <img
                 src="/System.png"
                 alt="Hydrogen Health 808"
-                className="relative z-10 w-full max-w-lg lg:max-w-3xl rounded-2xl shadow-2xl object-contain aspect-[4/5] bg-white p-2 product-hero-image"
+                className="relative z-10 w-full max-w-xs sm:max-w-lg lg:max-w-3xl rounded-2xl shadow-2xl object-contain aspect-[4/5] bg-white p-1 sm:p-2 product-hero-image"
               />
             </motion.div>
             
