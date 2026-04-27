@@ -323,7 +323,7 @@ export default function Product() {
               { id: 1, img: "/technology.jpg", alt: "Технология", icon: Zap, title: "Технология" },
               { id: 2, img: "/battery.jpg", alt: "Производителност", icon: Activity, title: "Производителност" },
               { id: 3, img: "/design.webp", alt: "Дизайн", icon: Search, title: "Дизайн" },
-              { id: 4, img: "/electrolysis.jpg", alt: "Поддръжка", icon: ShieldCheck, title: "Поддръжка" }
+              { id: 4, img: "/centification.jpg", alt: "Поддръжка", icon: ShieldCheck, title: "Поддръжка" }
             ].map((spec, idx) => {
               const isExpanded = activeSpec === spec.id;
               return (
