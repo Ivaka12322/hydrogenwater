@@ -335,12 +335,12 @@ export default function Product() {
                 isExpanded ? 'lg:col-span-2 lg:row-span-2 min-h-96' : ''
               }`}
             >
-              <div className={`${isExpanded ? 'h-72' : 'h-56'} w-full relative overflow-hidden bg-gray-100 transition-all duration-300`}>
+              <div className={`${isExpanded ? 'h-72' : 'h-56'} w-full relative overflow-hidden ${spec.id === 4 ? 'bg-black' : 'bg-gray-100'} transition-all duration-300`}>
                 <img
                   src={spec.img}
                   alt={spec.alt}
-                  className={`w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ${
-                    isExpanded ? 'scale-110' : 'scale-100'
+                  className={`w-full h-full ${spec.id === 4 ? 'object-contain p-4' : 'object-cover'} group-hover:${spec.id === 4 ? 'scale-105' : 'scale-110'} transition-transform duration-700 ${
+                    isExpanded ? (spec.id === 4 ? 'scale-105' : 'scale-110') : 'scale-100'
                   }`}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/20 to-transparent"></div>
