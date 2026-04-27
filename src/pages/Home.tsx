@@ -100,19 +100,13 @@ export default function Home() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.4, delay: 0.6 }}
           >
-            <Link 
-              to="/product" 
+            <Link
+              to="/product"
               className="inline-flex items-center justify-center px-8 py-4 bg-brand-primary hover:bg-brand-primary-light text-white rounded-full font-medium text-lg transition-all shadow-xl hover:shadow-2xl transform hover:-translate-y-1"
             >
-              Научете повече
+              Към продукта
               <ArrowRight className="ml-2 w-5 h-5" />
             </Link>
-            <a 
-              href="/#contact"
-              className="inline-flex items-center justify-center px-8 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-sm border-2 border-white text-white rounded-full font-medium text-lg transition-all"
-            >
-              Контакти
-            </a>
           </motion.div>
         </motion.div>
       </section>

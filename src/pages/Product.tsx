@@ -113,6 +113,7 @@ const MobileAccordion = () => {
 
 export default function Product() {
   const [activeStep, setActiveStep] = useState<number | null>(null);
+  const [activeSpec, setActiveSpec] = useState<number | null>(null);
   const phCarouselRef = useRef<HTMLDivElement>(null);
   const testimonialCarouselRef = useRef<HTMLDivElement>(null);
 
@@ -205,18 +206,18 @@ export default function Product() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
             {/* Product Image */}
-            <motion.div 
+            <motion.div
               className="order-1 md:order-1 flex justify-center relative"
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
-              <div className="absolute inset-0 bg-brand-light rounded-[40px] transform -rotate-3 scale-105 z-0"></div>
-              <img 
-                src="/System.png" 
-                alt="Hydrogen Health 808" 
-                className="relative z-10 w-full max-w-lg lg:max-w-xl rounded-2xl shadow-2xl object-contain aspect-[4/5] bg-white p-6 product-hero-image"
+              <div className="absolute inset-0 bg-brand-light rounded-[40px] transform -rotate-3 scale-95 z-0"></div>
+              <img
+                src="/System.png"
+                alt="Hydrogen Health 808"
+                className="relative z-10 w-full max-w-lg lg:max-w-2xl rounded-2xl shadow-2xl object-contain aspect-[4/5] bg-white p-4 product-hero-image"
               />
             </motion.div>
             
@@ -311,164 +312,130 @@ export default function Product() {
             </motion.p>
           </div>
 
-          <motion.div 
+          <motion.div
             className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 specs-grid grid"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
           >
-            {/* Tech Card */}
-            <motion.div variants={itemVariants} className="bg-white rounded-[20px] shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] transition-all duration-300 transform hover:-translate-y-1 border border-gray-100 flex flex-col overflow-hidden group spec-card card">
-              <div className="h-56 w-full relative overflow-hidden bg-gray-100">
-                <img 
-                  src="/technology.jpg" 
-                  alt="Технология" 
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
+            {[
+              { id: 1, img: "/technology.jpg", alt: "Технология", icon: Zap, title: "Технология" },
+              { id: 2, img: "/battery.jpg", alt: "Производителност", icon: Activity, title: "Производителност" },
+              { id: 3, img: "/design.webp", alt: "Дизайн", icon: Search, title: "Дизайн" },
+              { id: 4, img: "/electrolysis.jpg", alt: "Поддръжка", icon: ShieldCheck, title: "Поддръжка" }
+            ].map((spec, idx) => {
+              const isExpanded = activeSpec === spec.id;
+              return (
+            <motion.div
+              key={spec.id}
+              variants={itemVariants}
+              onClick={() => setActiveSpec(isExpanded ? null : spec.id)}
+              className={`bg-white rounded-[20px] shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] transition-all duration-300 transform hover:-translate-y-1 border border-gray-100 flex flex-col overflow-hidden group spec-card card cursor-pointer ${
+                isExpanded ? 'lg:col-span-2 lg:row-span-2 min-h-96' : ''
+              }`}
+            >
+              <div className={`${isExpanded ? 'h-72' : 'h-56'} w-full relative overflow-hidden bg-gray-100 transition-all duration-300`}>
+                <img
+                  src={spec.img}
+                  alt={spec.alt}
+                  className={`w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ${
+                    isExpanded ? 'scale-110' : 'scale-100'
+                  }`}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/20 to-transparent"></div>
                 <div className="absolute bottom-5 left-5 right-5 flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center flex-shrink-0">
-                    <Zap className="w-5 h-5 text-white" />
+                    <spec.icon className="w-5 h-5 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold text-white leading-tight">Технология</h3>
+                  <h3 className="text-xl font-bold text-white leading-tight">{spec.title}</h3>
                 </div>
               </div>
               <div className="p-6 flex-grow">
-                <ul className="space-y-4 text-text-muted">
-                  <li className="flex items-start gap-3">
-                    <div className="w-1.5 h-1.5 rounded-full bg-brand-primary mt-2.5 flex-shrink-0" /> 
-                    <span>11 платинени плочи</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-1.5 h-1.5 rounded-full bg-brand-primary mt-2.5 flex-shrink-0" /> 
-                    <span>GRID технология™</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-1.5 h-1.5 rounded-full bg-brand-primary mt-2.5 flex-shrink-0" /> 
-                    <span>pH: 3.5 - 10.5</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-1.5 h-1.5 rounded-full bg-brand-primary mt-2.5 flex-shrink-0" /> 
-                    <span>ORP: До -800mV</span>
-                  </li>
-                </ul>
+                {idx === 0 && (
+                  <ul className="space-y-4 text-text-muted">
+                    <li className="flex items-start gap-3">
+                      <div className="w-1.5 h-1.5 rounded-full bg-brand-primary mt-2.5 flex-shrink-0" />
+                      <span>11 платинени плочи</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <div className="w-1.5 h-1.5 rounded-full bg-brand-primary mt-2.5 flex-shrink-0" />
+                      <span>GRID технология™</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <div className="w-1.5 h-1.5 rounded-full bg-brand-primary mt-2.5 flex-shrink-0" />
+                      <span>pH: 3.5 - 10.5</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <div className="w-1.5 h-1.5 rounded-full bg-brand-primary mt-2.5 flex-shrink-0" />
+                      <span>ORP: До -800mV</span>
+                    </li>
+                  </ul>
+                )}
+                {idx === 1 && (
+                  <ul className="space-y-4 text-text-muted">
+                    <li className="flex items-start gap-3">
+                      <div className="w-1.5 h-1.5 rounded-full bg-brand-primary mt-2.5 flex-shrink-0" />
+                      <span>Живот: 8,000 часа</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <div className="w-1.5 h-1.5 rounded-full bg-brand-primary mt-2.5 flex-shrink-0" />
+                      <span>Консумация: 200W</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <div className="w-1.5 h-1.5 rounded-full bg-brand-primary mt-2.5 flex-shrink-0" />
+                      <span>Висок дебит</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <div className="w-1.5 h-1.5 rounded-full bg-brand-primary mt-2.5 flex-shrink-0" />
+                      <span>Самопочистване</span>
+                    </li>
+                  </ul>
+                )}
+                {idx === 2 && (
+                  <ul className="space-y-4 text-text-muted">
+                    <li className="flex items-start gap-3">
+                      <div className="w-1.5 h-1.5 rounded-full bg-brand-primary mt-2.5 flex-shrink-0" />
+                      <span>Компактен размер</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <div className="w-1.5 h-1.5 rounded-full bg-brand-primary mt-2.5 flex-shrink-0" />
+                      <span>Премиум материали</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <div className="w-1.5 h-1.5 rounded-full bg-brand-primary mt-2.5 flex-shrink-0" />
+                      <span>Черен + Сребро</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <div className="w-1.5 h-1.5 rounded-full bg-brand-primary mt-2.5 flex-shrink-0" />
+                      <span>LCD дигитален дисплей</span>
+                    </li>
+                  </ul>
+                )}
+                {idx === 3 && (
+                  <ul className="space-y-4 text-text-muted">
+                    <li className="flex items-start gap-3">
+                      <div className="w-1.5 h-1.5 rounded-full bg-brand-primary mt-2.5 flex-shrink-0" />
+                      <span>Дълга гаранция</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <div className="w-1.5 h-1.5 rounded-full bg-brand-primary mt-2.5 flex-shrink-0" />
+                      <span>CE, SGS Сертификати</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <div className="w-1.5 h-1.5 rounded-full bg-brand-primary mt-2.5 flex-shrink-0" />
+                      <span>Техническа помощ</span>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <div className="w-1.5 h-1.5 rounded-full bg-brand-primary mt-2.5 flex-shrink-0" />
+                      <span>Налични резервни филтри</span>
+                    </li>
+                  </ul>
+                )}
               </div>
             </motion.div>
-            
-            {/* Productivity Card */}
-            <motion.div variants={itemVariants} className="bg-white rounded-[20px] shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] transition-all duration-300 transform hover:-translate-y-1 border border-gray-100 flex flex-col overflow-hidden group spec-card card">
-              <div className="h-56 w-full relative overflow-hidden bg-gray-100">
-                <img 
-                  src="/battery.jpg" 
-                  alt="Производителност" 
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/20 to-transparent"></div>
-                <div className="absolute bottom-5 left-5 right-5 flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center flex-shrink-0">
-                    <Activity className="w-5 h-5 text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold text-white leading-tight">Производителност</h3>
-                </div>
-              </div>
-              <div className="p-6 flex-grow">
-                <ul className="space-y-4 text-text-muted">
-                  <li className="flex items-start gap-3">
-                    <div className="w-1.5 h-1.5 rounded-full bg-brand-primary mt-2.5 flex-shrink-0" /> 
-                    <span>Живот: 8,000 часа</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-1.5 h-1.5 rounded-full bg-brand-primary mt-2.5 flex-shrink-0" /> 
-                    <span>Консумация: 200W</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-1.5 h-1.5 rounded-full bg-brand-primary mt-2.5 flex-shrink-0" /> 
-                    <span>Висок дебит</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-1.5 h-1.5 rounded-full bg-brand-primary mt-2.5 flex-shrink-0" /> 
-                    <span>Самопочистване</span>
-                  </li>
-                </ul>
-              </div>
-            </motion.div>
-
-            {/* Design Card */}
-            <motion.div variants={itemVariants} className="bg-white rounded-[20px] shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] transition-all duration-300 transform hover:-translate-y-1 border border-gray-100 flex flex-col overflow-hidden group spec-card card">
-              <div className="h-56 w-full relative overflow-hidden bg-gray-100">
-                <img 
-                  src="/design.webp" 
-                  alt="Дизайн" 
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/20 to-transparent"></div>
-                <div className="absolute bottom-5 left-5 right-5 flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center flex-shrink-0">
-                    <Search className="w-5 h-5 text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold text-white leading-tight">Дизайн</h3>
-                </div>
-              </div>
-              <div className="p-6 flex-grow">
-                <ul className="space-y-4 text-text-muted">
-                  <li className="flex items-start gap-3">
-                    <div className="w-1.5 h-1.5 rounded-full bg-brand-primary mt-2.5 flex-shrink-0" /> 
-                    <span>Компактен размер</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-1.5 h-1.5 rounded-full bg-brand-primary mt-2.5 flex-shrink-0" /> 
-                    <span>Премиум материали</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-1.5 h-1.5 rounded-full bg-brand-primary mt-2.5 flex-shrink-0" /> 
-                    <span>Черен + Сребро</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-1.5 h-1.5 rounded-full bg-brand-primary mt-2.5 flex-shrink-0" /> 
-                    <span>LCD дигитален дисплей</span>
-                  </li>
-                </ul>
-              </div>
-            </motion.div>
-
-            {/* Upkeep Card */}
-            <motion.div variants={itemVariants} className="bg-white rounded-[20px] shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] transition-all duration-300 transform hover:-translate-y-1 border border-gray-100 flex flex-col overflow-hidden group spec-card card">
-              <div className="h-56 w-full relative overflow-hidden bg-gray-100">
-                <img 
-                  src="/centification.jpg" 
-                  alt="Поддръжка" 
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/20 to-transparent"></div>
-                <div className="absolute bottom-5 left-5 right-5 flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center flex-shrink-0">
-                    <ShieldCheck className="w-5 h-5 text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold text-white leading-tight">Поддръжка</h3>
-                </div>
-              </div>
-              <div className="p-6 flex-grow">
-                <ul className="space-y-4 text-text-muted">
-                  <li className="flex items-start gap-3">
-                    <div className="w-1.5 h-1.5 rounded-full bg-brand-primary mt-2.5 flex-shrink-0" /> 
-                    <span>Дълга гаранция</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-1.5 h-1.5 rounded-full bg-brand-primary mt-2.5 flex-shrink-0" /> 
-                    <span>CE, SGS Сертификати</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-1.5 h-1.5 rounded-full bg-brand-primary mt-2.5 flex-shrink-0" /> 
-                    <span>Техническа помощ</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <div className="w-1.5 h-1.5 rounded-full bg-brand-primary mt-2.5 flex-shrink-0" /> 
-                    <span>Налични резервни филтри</span>
-                  </li>
-                </ul>
-              </div>
-            </motion.div>
+              );
+            })}
           </motion.div>
         </div>
       </section>

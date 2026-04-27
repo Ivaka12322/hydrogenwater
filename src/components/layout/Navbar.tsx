@@ -21,8 +21,7 @@ export function Navbar() {
 
   const navLinks = [
     { name: 'Начало', path: '/' },
-    { name: 'Продукт', path: '/product' },
-    { name: 'Контакти', path: '/#contact' }
+    { name: 'Продукт', path: '/product' }
   ];
 
   return (
