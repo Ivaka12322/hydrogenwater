@@ -542,9 +542,9 @@ export default function Product() {
                   <motion.div
                     key={step.id}
                     layout
-                    onClick={() => setActiveStep(isExpanded ? null : step.id)}
-                    className={`relative cursor-pointer overflow-hidden rounded-[32px] transition-all duration-500 ease-out border border-gray-100 group card ${
-                      isExpanded ? 'md:flex-[3] md:min-h-[600px] ring-2 ring-brand-primary/20 shadow-2xl z-30' : 'flex-1 hover:bg-gray-50 z-0'
+                    onClick={() => window.innerWidth < 768 && setActiveStep(isExpanded ? null : step.id)}
+                    className={`relative md:cursor-default overflow-hidden rounded-[32px] transition-all duration-500 ease-out border border-gray-100 group card ${
+                      isExpanded ? 'md:flex-[3] md:min-h-[600px] ring-2 ring-brand-primary/20 shadow-2xl z-30' : 'flex-1 cursor-pointer hover:bg-gray-50 z-0 md:hover:bg-white'
                     }`}
                     initial={false}
                   >

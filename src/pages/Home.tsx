@@ -293,16 +293,16 @@ export default function Home() {
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
               <h3 className="text-lg md:text-xl font-bold text-text-main mb-4 md:mb-6 text-center">Таблица с различни Ph на водата</h3>
-              <div 
-                className="cursor-pointer group relative"
-                onClick={() => setIsTableExpanded(true)}
+              <div
+                className="md:cursor-default md:pointer-events-none cursor-pointer group relative md:group-hover:opacity-100"
+                onClick={() => window.innerWidth < 768 && setIsTableExpanded(true)}
               >
                 <img 
                   src="/Ph%20bg.png" 
                   alt="PH Science Background" 
                   className="w-full h-auto object-contain drop-shadow-lg max-h-[750px] mx-auto transition-transform group-hover:scale-[1.02]"
                 />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors flex items-center justify-center rounded-xl">
+                <div className="absolute inset-0 bg-black/0 md:hidden group-hover:bg-black/5 transition-colors flex items-center justify-center rounded-xl">
                   <div className="opacity-0 group-hover:opacity-100 bg-white/90 p-3 rounded-full shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all">
                     <Plus className="w-6 h-6 text-brand-primary" />
                   </div>
